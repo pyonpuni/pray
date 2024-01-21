@@ -5,7 +5,6 @@ import type { APIGuildMember } from './guild';
 import type { Snowflake } from '../../globals';
 /**
  * https://discord.com/developers/docs/resources/voice#voice-state-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface GatewayVoiceState {
     /**
@@ -65,7 +64,6 @@ export interface GatewayVoiceState {
 }
 /**
  * https://discord.com/developers/docs/resources/voice#voice-region-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIVoiceRegion {
     /**

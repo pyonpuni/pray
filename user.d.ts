@@ -5,7 +5,6 @@ import type { APIGuildIntegration } from './guild';
 import type { Snowflake } from '../../globals';
 /**
  * https://discord.com/developers/docs/resources/user#user-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIUser {
     /**
@@ -81,7 +80,6 @@ export interface APIUser {
 }
 /**
  * https://discord.com/developers/docs/resources/user#user-object-user-flags
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare enum UserFlags {
     /**
@@ -93,7 +91,7 @@ export declare enum UserFlags {
      */
     Partner = 2,
     /**
-     * HypeSquad Events Coordinator
+     * HypeSquad Events Member
      */
     Hypesquad = 4,
     /**
@@ -109,7 +107,7 @@ export declare enum UserFlags {
      */
     HypeSquadOnlineHouse2 = 128,
     /**
-     * House Balance MemberW
+     * House Balance Member
      */
     HypeSquadOnlineHouse3 = 256,
     /**
@@ -133,7 +131,7 @@ export declare enum UserFlags {
      */
     VerifiedDeveloper = 131072,
     /**
-     * Discord Certified Moderator
+     * Moderator Programs Alumni
      */
     CertifiedModerator = 262144,
     /**
@@ -147,24 +145,31 @@ export declare enum UserFlags {
      */
     Spammer = 1048576,
     /**
-     * User's account has been quarantined based on recent activity
+     * User is an [Active Developer](https://support-dev.discord.com/hc/articles/10113997751447)
+     */
+    ActiveDeveloper = 4194304,
+    /**
+     * User's account has been [quarantined](https://support.discord.com/hc/articles/6461420677527) based on recent activity
      *
      * @unstable This user flag is currently not documented by Discord but has a known value which we will try to keep up to date.
+     *
+     * @privateRemarks
+     *
+     * This value would be 1 << 44, but bit shifting above 1 << 30 requires bigints
      */
-    Quarantined
+    Quarantined = 17592186044416
 }
 /**
  * https://discord.com/developers/docs/resources/user#user-object-premium-types
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare enum UserPremiumType {
     None = 0,
     NitroClassic = 1,
-    Nitro = 2
+    Nitro = 2,
+    NitroBasic = 3
 }
 /**
  * https://discord.com/developers/docs/resources/user#connection-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIConnection {
     /**
@@ -177,8 +182,10 @@ export interface APIConnection {
     name: string;
     /**
      * The service of the connection
+     *
+     * See https://discord.com/developers/docs/resources/user#connection-object-services
      */
-    type: string;
+    type: ConnectionService;
     /**
      * Whether the connection is revoked
      */
@@ -202,15 +209,36 @@ export interface APIConnection {
      */
     show_activity: boolean;
     /**
+     * Whether this connection supports console voice transfer
+     */
+    two_way_link: boolean;
+    /**
      * Visibility of this connection
      *
      * See https://discord.com/developers/docs/resources/user#connection-object-visibility-types
      */
     visibility: ConnectionVisibility;
 }
-/**
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
- */
+export declare enum ConnectionService {
+    BattleNet = "battlenet",
+    eBay = "ebay",
+    EpicGames = "epicgames",
+    Facebook = "facebook",
+    GitHub = "github",
+    LeagueOfLegends = "leagueoflegends",
+    PayPal = "paypal",
+    PlayStationNetwork = "playstation",
+    Reddit = "reddit",
+    RiotGames = "riotgames",
+    Spotify = "spotify",
+    Skype = "skype",
+    Steam = "steam",
+    TikTok = "tiktok",
+    Twitch = "twitch",
+    Twitter = "twitter",
+    Xbox = "xbox",
+    YouTube = "youtube"
+}
 export declare enum ConnectionVisibility {
     /**
      * Invisible to everyone except the user themselves
@@ -220,5 +248,22 @@ export declare enum ConnectionVisibility {
      * Visible to everyone
      */
     Everyone = 1
+}
+/**
+ * https://discord.com/developers/docs/resources/user#application-role-connection-object-application-role-connection-structure
+ */
+export interface APIApplicationRoleConnection {
+    /**
+     * The vanity name of the platform a bot has connected (max 50 characters)
+     */
+    platform_name: string | null;
+    /**
+     * The username on the platform a bot has connected (max 100 characters)
+     */
+    platform_username: string | null;
+    /**
+     * Object mapping application role connection metadata keys to their `string`-ified value (max 100 characters) for the user on the platform a bot has connected
+     */
+    metadata: Record<string, string | number>;
 }
 //# sourceMappingURL=user.d.ts.map

@@ -4,7 +4,6 @@
 import type { Permissions, Snowflake } from '../../globals';
 /**
  * https://discord.com/developers/docs/topics/permissions#role-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIRole {
     /**
@@ -56,7 +55,6 @@ export interface APIRole {
 }
 /**
  * https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIRoleTags {
     /**
@@ -71,5 +69,17 @@ export interface APIRoleTags {
      * The id of the integration this role belongs to
      */
     integration_id?: Snowflake;
+    /**
+     * The id of this role's subscription sku and listing
+     */
+    subscription_listing_id?: Snowflake;
+    /**
+     * Whether this role is available for purchase
+     */
+    available_for_purchase?: null;
+    /**
+     * Whether this role is a guild's linked role
+     */
+    guild_connections?: null;
 }
 //# sourceMappingURL=permissions.d.ts.map

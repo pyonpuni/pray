@@ -1,12 +1,11 @@
 /**
- * Types extracted from https://discord.com/developers/docs/resources/template
+ * Types extracted from https://discord.com/developers/docs/resources/guild-template
  */
 import type { APIUser } from './user';
 import type { Snowflake } from '../../globals';
-import type { RESTPostAPIGuildsJSONBody } from '../../rest/v8/index';
+import type { RESTPostAPIGuildsJSONBody } from '../../rest/v10/index';
 /**
- * https://discord.com/developers/docs/resources/template#template-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ * https://discord.com/developers/docs/resources/guild-template#guild-template-object
  */
 export interface APITemplate {
     /**
@@ -56,9 +55,6 @@ export interface APITemplate {
      */
     is_dirty: boolean | null;
 }
-/**
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
- */
 export interface APITemplateSerializedSourceGuild extends Omit<RESTPostAPIGuildsJSONBody, 'icon'> {
     description: string | null;
     preferred_locale: string;

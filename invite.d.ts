@@ -10,7 +10,6 @@ import type { APIUser } from './user';
 export declare type APIInviteGuild = Pick<APIGuild, 'id' | 'name' | 'splash' | 'banner' | 'icon' | 'vanity_url_code' | 'description' | 'features' | 'verification_level' | 'nsfw_level' | 'premium_subscription_count'>;
 /**
  * https://discord.com/developers/docs/resources/invite#invite-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIInvite {
     /**
@@ -38,7 +37,7 @@ export interface APIInvite {
     /**
      * The type of target for this voice channel invite
      *
-     * See https://discord.com/developers/docs/resources/invite#invite-object-target-user-types
+     * See https://discord.com/developers/docs/resources/invite#invite-object-invite-target-types
      */
     target_type?: InviteTargetType;
     /**
@@ -50,7 +49,7 @@ export interface APIInvite {
     /**
      * The embedded application to open for this voice channel embedded application invite
      *
-     * See https://discord.com/developers/docs/topics/oauth2#application
+     * See https://discord.com/developers/docs/resources/application#application-object
      */
     target_application?: Partial<APIApplication>;
     /**
@@ -67,6 +66,7 @@ export interface APIInvite {
     expires_at?: string | null;
     /**
      * The stage instance data if there is a public stage instance in the stage channel this invite is for
+     * @deprecated
      */
     stage_instance?: APIInviteStageInstance;
     /**
@@ -76,7 +76,6 @@ export interface APIInvite {
 }
 /**
  * https://discord.com/developers/docs/resources/invite#invite-object-invite-target-types
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare enum InviteTargetType {
     Stream = 1,
@@ -84,7 +83,6 @@ export declare enum InviteTargetType {
 }
 /**
  * https://discord.com/developers/docs/resources/invite#invite-metadata-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIExtendedInvite extends APIInvite {
     /**
