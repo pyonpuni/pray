@@ -10,11 +10,11 @@ import type { APIApplicationCommandInteractionDataSubcommandOption, APIApplicati
 import type { APIApplicationCommandInteractionDataSubcommandGroupOption, APIApplicationCommandSubcommandGroupOption } from './_chatInput/subcommandGroup';
 import type { APIApplicationCommandInteractionDataUserOption, APIApplicationCommandUserOption } from './_chatInput/user';
 import type { APIBaseApplicationCommandInteractionData } from './internals';
-import type { Snowflake } from '../../../../globals';
-import type { APIAttachment, APIRole, APIUser } from '../../index';
-import type { APIApplicationCommandInteractionWrapper, APIInteractionDataResolvedChannel, APIInteractionDataResolvedGuildMember, ApplicationCommandType } from '../applicationCommands';
+import type { APIInteractionDataResolved } from '../../index';
+import type { APIApplicationCommandInteractionWrapper, ApplicationCommandType } from '../applicationCommands';
 import type { APIDMInteractionWrapper, APIGuildInteractionWrapper } from '../base';
 export * from './_chatInput/attachment';
+export * from './_chatInput/base';
 export * from './_chatInput/boolean';
 export * from './_chatInput/channel';
 export * from './_chatInput/integer';
@@ -28,55 +28,34 @@ export * from './_chatInput/subcommandGroup';
 export * from './_chatInput/user';
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIApplicationCommandBasicOption = APIApplicationCommandStringOption | APIApplicationCommandIntegerOption | APIApplicationCommandBooleanOption | APIApplicationCommandUserOption | APIApplicationCommandChannelOption | APIApplicationCommandRoleOption | APIApplicationCommandMentionableOption | APIApplicationCommandNumberOption | APIApplicationCommandAttachmentOption;
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIApplicationCommandOption = APIApplicationCommandSubcommandOption | APIApplicationCommandSubcommandGroupOption | APIApplicationCommandBasicOption;
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-interaction-data-option-structure
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIApplicationCommandInteractionDataOption = APIApplicationCommandInteractionDataSubcommandOption | APIApplicationCommandInteractionDataSubcommandGroupOption | APIApplicationCommandInteractionDataBasicOption;
-/**
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
- */
 export declare type APIApplicationCommandInteractionDataBasicOption = APIApplicationCommandInteractionDataStringOption | APIApplicationCommandInteractionDataIntegerOption | APIApplicationCommandInteractionDataBooleanOption | APIApplicationCommandInteractionDataUserOption | APIApplicationCommandInteractionDataChannelOption | APIApplicationCommandInteractionDataRoleOption | APIApplicationCommandInteractionDataMentionableOption | APIApplicationCommandInteractionDataNumberOption | APIApplicationCommandInteractionDataAttachmentOption;
 /**
- * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-data-structure
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-data
  */
 export interface APIChatInputApplicationCommandInteractionData extends APIBaseApplicationCommandInteractionData<ApplicationCommandType.ChatInput> {
     options?: APIApplicationCommandInteractionDataOption[];
-    resolved?: APIChatInputApplicationCommandInteractionDataResolved;
-}
-/**
- * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-resolved-data-structure
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
- */
-export interface APIChatInputApplicationCommandInteractionDataResolved {
-    users?: Record<Snowflake, APIUser>;
-    roles?: Record<Snowflake, APIRole>;
-    members?: Record<Snowflake, APIInteractionDataResolvedGuildMember>;
-    channels?: Record<Snowflake, APIInteractionDataResolvedChannel>;
-    attachments?: Record<Snowflake, APIAttachment>;
+    resolved?: APIInteractionDataResolved;
 }
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIChatInputApplicationCommandInteraction = APIApplicationCommandInteractionWrapper<APIChatInputApplicationCommandInteractionData>;
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIChatInputApplicationCommandDMInteraction = APIDMInteractionWrapper<APIChatInputApplicationCommandInteraction>;
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIChatInputApplicationCommandGuildInteraction = APIGuildInteractionWrapper<APIChatInputApplicationCommandInteraction>;
 //# sourceMappingURL=chatInput.d.ts.map

@@ -3,14 +3,12 @@ import type { APIContextMenuDMInteraction, APIContextMenuGuildInteraction, APICo
 import type { APIBaseInteraction } from './base';
 import type { InteractionType } from './responses';
 import type { Permissions, Snowflake } from '../../../globals';
-import type { APIPartialChannel } from '../channel';
-import type { APIGuildMember } from '../guild';
+import type { LocalizationMap } from '../../../v10';
 export * from './_applicationCommands/chatInput';
 export * from './_applicationCommands/contextMenu';
 export * from './_applicationCommands/permissions';
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIApplicationCommand {
     /**
@@ -30,23 +28,52 @@ export interface APIApplicationCommand {
      */
     guild_id?: Snowflake;
     /**
-     * 1-32 character name; `CHAT_INPUT` command names must be all lowercase matching `^[\w-]{1,32}$`
+     * 1-32 character name; `CHAT_INPUT` command names must be all lowercase matching `^[-_\p{L}\p{N}\p{sc=Deva}\p{sc=Thai}]{1,32}$`
      */
     name: string;
+    /**
+     * Localization dictionary for the name field. Values follow the same restrictions as name
+     */
+    name_localizations?: LocalizationMap | null;
+    /**
+     * The localized name
+     */
+    name_localized?: string;
     /**
      * 1-100 character description for `CHAT_INPUT` commands, empty string for `USER` and `MESSAGE` commands
      */
     description: string;
     /**
+     * Localization dictionary for the description field. Values follow the same restrictions as description
+     */
+    description_localizations?: LocalizationMap | null;
+    /**
+     * The localized description
+     */
+    description_localized?: string;
+    /**
      * The parameters for the `CHAT_INPUT` command, max 25
      */
     options?: APIApplicationCommandOption[];
     /**
+     * Set of permissions represented as a bitset
+     */
+    default_member_permissions: Permissions | null;
+    /**
+     * Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible
+     */
+    dm_permission?: boolean;
+    /**
      * Whether the command is enabled by default when the app is added to a guild
      *
      * If missing, this property should be assumed as `true`
+     * @deprecated Use `dm_permission` and/or `default_member_permissions` instead
      */
     default_permission?: boolean;
+    /**
+     * Indicates whether the command is age-restricted, defaults to `false`
+     */
+    nsfw?: boolean;
     /**
      * Autoincrementing version identifier updated during substantial record changes
      */
@@ -54,7 +81,6 @@ export interface APIApplicationCommand {
 }
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-types
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare enum ApplicationCommandType {
     ChatInput = 1,
@@ -62,42 +88,23 @@ export declare enum ApplicationCommandType {
     Message = 3
 }
 /**
- * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-data-structure
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-data
  */
 export declare type APIApplicationCommandInteractionData = APIChatInputApplicationCommandInteractionData | APIContextMenuInteractionData;
 /**
- * https://discord.com/developers/docs/resources/channel#channel-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
  */
-export interface APIInteractionDataResolvedChannel extends Required<APIPartialChannel> {
-    permissions: Permissions;
-}
-/**
- * https://discord.com/developers/docs/resources/guild#guild-member-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
- */
-export interface APIInteractionDataResolvedGuildMember extends Omit<APIGuildMember, 'user' | 'deaf' | 'mute'> {
-    permissions: Permissions;
-}
+export declare type APIApplicationCommandInteractionWrapper<Data extends APIApplicationCommandInteractionData> = APIBaseInteraction<InteractionType.ApplicationCommand, Data> & Required<Pick<APIBaseInteraction<InteractionType.ApplicationCommand, Data>, 'channel_id' | 'data' | 'app_permissions'>>;
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
- */
-export declare type APIApplicationCommandInteractionWrapper<Data extends APIApplicationCommandInteractionData> = APIBaseInteraction<InteractionType.ApplicationCommand, Data> & Required<Pick<APIBaseInteraction<InteractionType.ApplicationCommand, Data>, 'channel_id' | 'data'>>;
-/**
- * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIApplicationCommandInteraction = APIChatInputApplicationCommandInteraction | APIContextMenuInteraction;
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIApplicationCommandDMInteraction = APIChatInputApplicationCommandDMInteraction | APIContextMenuDMInteraction;
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
- * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIApplicationCommandGuildInteraction = APIChatInputApplicationCommandGuildInteraction | APIContextMenuGuildInteraction;
 //# sourceMappingURL=applicationCommands.d.ts.map
