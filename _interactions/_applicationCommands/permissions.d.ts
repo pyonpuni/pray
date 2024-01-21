@@ -1,10 +1,11 @@
 import type { Snowflake } from '../../../../globals';
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-guild-application-command-permissions-structure
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIGuildApplicationCommandPermissions {
     /**
-     * The id of the command or the application id if that permission applies to all commands
+     * The id of the command
      */
     id: Snowflake;
     /**
@@ -22,14 +23,15 @@ export interface APIGuildApplicationCommandPermissions {
 }
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-application-command-permissions-structure
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIApplicationCommandPermission {
     /**
-     * The id of the role, user or channel. Can also be a permission constant
+     * The id of the role or user
      */
     id: Snowflake;
     /**
-     * Role, user or channel
+     * Role or user
      */
     type: ApplicationCommandPermissionType;
     /**
@@ -39,17 +41,10 @@ export interface APIApplicationCommandPermission {
 }
 /**
  * https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-application-command-permission-type
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare enum ApplicationCommandPermissionType {
     Role = 1,
-    User = 2,
-    Channel = 3
+    User = 2
 }
-/**
- * https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-application-command-permissions-constants
- */
-export declare const APIApplicationCommandPermissionsConstant: {
-    Everyone: (guildId: string | bigint) => Snowflake;
-    AllChannels: (guildId: string | bigint) => Snowflake;
-};
 //# sourceMappingURL=permissions.d.ts.map

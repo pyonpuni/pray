@@ -1,15 +1,21 @@
 import type { APIActionRowComponent, APIModalActionRowComponent } from '../channel';
 import type { APIBaseInteraction, APIDMInteractionWrapper, APIGuildInteractionWrapper, ComponentType, InteractionType } from '../index';
+/**
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ */
 export interface ModalSubmitComponent {
     type: ComponentType;
     custom_id: string;
     value: string;
 }
+/**
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ */
 export interface ModalSubmitActionRowComponent extends Omit<APIActionRowComponent<APIModalActionRowComponent>, 'components'> {
     components: ModalSubmitComponent[];
 }
 /**
- * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-modal-submit-data-structure
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIModalSubmission {
     /**
@@ -19,18 +25,21 @@ export interface APIModalSubmission {
     /**
      * A list of child components
      */
-    components: ModalSubmitActionRowComponent[];
+    components?: ModalSubmitActionRowComponent[];
 }
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIModalSubmitInteraction = APIBaseInteraction<InteractionType.ModalSubmit, APIModalSubmission> & Required<Pick<APIBaseInteraction<InteractionType.ModalSubmit, APIModalSubmission>, 'data'>>;
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIModalSubmitDMInteraction = APIDMInteractionWrapper<APIModalSubmitInteraction>;
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIModalSubmitGuildInteraction = APIGuildInteractionWrapper<APIModalSubmitInteraction>;
 //# sourceMappingURL=modalSubmit.d.ts.map

@@ -1,12 +1,16 @@
 import type { InteractionType } from './responses';
 import type { Permissions, Snowflake } from '../../../globals';
-import type { APIRole, LocaleString } from '../../../v9';
-import type { APIAttachment, APIMessage, APIPartialChannel, APIThreadMetadata } from '../channel';
+import type { LocaleString } from '../../../v8';
+import type { APIMessage } from '../channel';
 import type { APIGuildMember } from '../guild';
 import type { APIUser } from '../user';
+/**
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ */
 export declare type PartialAPIMessageInteractionGuildMember = Pick<APIGuildMember, 'roles' | 'premium_since' | 'pending' | 'nick' | 'mute' | 'joined_at' | 'deaf' | 'communication_disabled_until' | 'avatar'>;
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIMessageInteraction {
     /**
@@ -18,7 +22,7 @@ export interface APIMessageInteraction {
      */
     type: InteractionType;
     /**
-     * The name of the application command, including subcommands and subcommand groups
+     * The name of the ApplicationCommand
      */
     name: string;
     /**
@@ -32,6 +36,7 @@ export interface APIMessageInteraction {
 }
 /**
  * https://discord.com/developers/docs/resources/guild#guild-member-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIInteractionGuildMember extends APIGuildMember {
     permissions: Permissions;
@@ -39,6 +44,7 @@ export interface APIInteractionGuildMember extends APIGuildMember {
 }
 /**
  * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIBaseInteraction<Type extends InteractionType, Data> {
     /**
@@ -88,10 +94,6 @@ export interface APIBaseInteraction<Type extends InteractionType, Data> {
      */
     message?: APIMessage;
     /**
-     * Bitwise set of permissions the app or bot has within the channel the interaction was sent from
-     */
-    app_permissions?: Permissions;
-    /**
      * The selected language of the invoking user
      */
     locale: LocaleString;
@@ -100,42 +102,12 @@ export interface APIBaseInteraction<Type extends InteractionType, Data> {
      */
     guild_locale?: LocaleString;
 }
+/**
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ */
 export declare type APIDMInteractionWrapper<Original extends APIBaseInteraction<InteractionType, unknown>> = Omit<Original, 'member' | 'guild_id'> & Required<Pick<Original, 'user'>>;
+/**
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ */
 export declare type APIGuildInteractionWrapper<Original extends APIBaseInteraction<InteractionType, unknown>> = Omit<Original, 'user'> & Required<Pick<Original, 'member' | 'guild_id'>>;
-/**
- * https://discord.com/developers/docs/resources/channel#channel-object
- */
-export interface APIInteractionDataResolvedChannel extends Required<APIPartialChannel> {
-    thread_metadata?: APIThreadMetadata | null;
-    permissions: Permissions;
-    parent_id?: string | null;
-}
-/**
- * https://discord.com/developers/docs/resources/guild#guild-member-object
- */
-export interface APIInteractionDataResolvedGuildMember extends Omit<APIGuildMember, 'user' | 'deaf' | 'mute'> {
-    permissions: Permissions;
-}
-/**
- * https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-resolved-data-structure
- */
-export interface APIInteractionDataResolved {
-    users?: Record<Snowflake, APIUser>;
-    roles?: Record<Snowflake, APIRole>;
-    members?: Record<Snowflake, APIInteractionDataResolvedGuildMember>;
-    channels?: Record<Snowflake, APIInteractionDataResolvedChannel>;
-    attachments?: Record<Snowflake, APIAttachment>;
-}
-/**
- * @deprecated Renamed to `APIInteractionDataResolved`
- */
-export declare type APIChatInputApplicationCommandInteractionDataResolved = APIInteractionDataResolved;
-/**
- * `users` and optional `members` from APIInteractionDataResolved, for user commands and user selects
- */
-export declare type APIUserInteractionDataResolved = Required<Pick<APIInteractionDataResolved, 'users'>> & Pick<APIInteractionDataResolved, 'members'>;
-/**
- * @deprecated Renamed to `APIUserInteractionDataResolved`
- */
-export declare type APIUserApplicationCommandInteractionDataResolved = APIUserInteractionDataResolved;
 //# sourceMappingURL=base.d.ts.map
