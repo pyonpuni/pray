@@ -5,6 +5,7 @@ import type { APIUser } from './user';
 import type { Snowflake } from '../../globals';
 /**
  * https://discord.com/developers/docs/resources/sticker#sticker-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APISticker {
     /**
@@ -31,7 +32,7 @@ export interface APISticker {
      * Previously the sticker asset hash, now an empty string
      * @deprecated
      */
-    asset?: '';
+    asset: '';
     /**
      * Type of sticker
      *
@@ -63,6 +64,7 @@ export interface APISticker {
 }
 /**
  * https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-types
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare enum StickerType {
     /**
@@ -70,25 +72,27 @@ export declare enum StickerType {
      */
     Standard = 1,
     /**
-     * A sticker uploaded to a guild for the guild's members
+     * A sticker uploaded to a Boosted guild for the guild's members
      */
     Guild = 2
 }
 /**
  * https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-format-types
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare enum StickerFormatType {
     PNG = 1,
     APNG = 2,
-    Lottie = 3,
-    GIF = 4
+    Lottie = 3
 }
 /**
  * https://discord.com/developers/docs/resources/sticker#sticker-item-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare type APIStickerItem = Pick<APISticker, 'id' | 'name' | 'format_type'>;
 /**
  * https://discord.com/developers/docs/resources/sticker#sticker-pack-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIStickerPack {
     /**

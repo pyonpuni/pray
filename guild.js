@@ -3,9 +3,10 @@
  * Types extracted from https://discord.com/developers/docs/resources/guild
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MembershipScreeningFieldType = exports.GuildWidgetStyle = exports.IntegrationExpireBehavior = exports.GuildMemberFlags = exports.GuildFeature = exports.GuildSystemChannelFlags = exports.GuildHubType = exports.GuildPremiumTier = exports.GuildVerificationLevel = exports.GuildNSFWLevel = exports.GuildMFALevel = exports.GuildExplicitContentFilter = exports.GuildDefaultMessageNotifications = void 0;
+exports.MembershipScreeningFieldType = exports.GuildWidgetStyle = exports.IntegrationExpireBehavior = exports.GuildFeature = exports.GuildSystemChannelFlags = exports.GuildPremiumTier = exports.GuildVerificationLevel = exports.GuildNSFWLevel = exports.GuildMFALevel = exports.GuildExplicitContentFilter = exports.GuildDefaultMessageNotifications = void 0;
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-default-message-notification-level
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildDefaultMessageNotifications;
 (function (GuildDefaultMessageNotifications) {
@@ -14,6 +15,7 @@ var GuildDefaultMessageNotifications;
 })(GuildDefaultMessageNotifications = exports.GuildDefaultMessageNotifications || (exports.GuildDefaultMessageNotifications = {}));
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-explicit-content-filter-level
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildExplicitContentFilter;
 (function (GuildExplicitContentFilter) {
@@ -23,6 +25,7 @@ var GuildExplicitContentFilter;
 })(GuildExplicitContentFilter = exports.GuildExplicitContentFilter || (exports.GuildExplicitContentFilter = {}));
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-mfa-level
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildMFALevel;
 (function (GuildMFALevel) {
@@ -31,6 +34,7 @@ var GuildMFALevel;
 })(GuildMFALevel = exports.GuildMFALevel || (exports.GuildMFALevel = {}));
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-guild-nsfw-level
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildNSFWLevel;
 (function (GuildNSFWLevel) {
@@ -41,6 +45,7 @@ var GuildNSFWLevel;
 })(GuildNSFWLevel = exports.GuildNSFWLevel || (exports.GuildNSFWLevel = {}));
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-verification-level
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildVerificationLevel;
 (function (GuildVerificationLevel) {
@@ -67,6 +72,7 @@ var GuildVerificationLevel;
 })(GuildVerificationLevel = exports.GuildVerificationLevel || (exports.GuildVerificationLevel = {}));
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-premium-tier
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildPremiumTier;
 (function (GuildPremiumTier) {
@@ -75,14 +81,9 @@ var GuildPremiumTier;
     GuildPremiumTier[GuildPremiumTier["Tier2"] = 2] = "Tier2";
     GuildPremiumTier[GuildPremiumTier["Tier3"] = 3] = "Tier3";
 })(GuildPremiumTier = exports.GuildPremiumTier || (exports.GuildPremiumTier = {}));
-var GuildHubType;
-(function (GuildHubType) {
-    GuildHubType[GuildHubType["Default"] = 0] = "Default";
-    GuildHubType[GuildHubType["HighSchool"] = 1] = "HighSchool";
-    GuildHubType[GuildHubType["College"] = 2] = "College";
-})(GuildHubType = exports.GuildHubType || (exports.GuildHubType = {}));
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildSystemChannelFlags;
 (function (GuildSystemChannelFlags) {
@@ -105,6 +106,7 @@ var GuildSystemChannelFlags;
 })(GuildSystemChannelFlags = exports.GuildSystemChannelFlags || (exports.GuildSystemChannelFlags = {}));
 /**
  * https://discord.com/developers/docs/resources/guild#guild-object-guild-features
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildFeature;
 (function (GuildFeature) {
@@ -117,35 +119,17 @@ var GuildFeature;
      */
     GuildFeature["AnimatedIcon"] = "ANIMATED_ICON";
     /**
-     * Guild is using the old permissions configuration behavior
-     *
-     * See https://discord.com/developers/docs/change-log#upcoming-application-command-permission-changes
-     */
-    GuildFeature["ApplicationCommandPermissionsV2"] = "APPLICATION_COMMAND_PERMISSIONS_V2";
-    /**
-     * Guild has set up auto moderation rules
-     */
-    GuildFeature["AutoModeration"] = "AUTO_MODERATION";
-    /**
      * Guild has access to set a guild banner image
      */
     GuildFeature["Banner"] = "BANNER";
     /**
+     * Guild has access to use commerce features (i.e. create store channels)
+     */
+    GuildFeature["Commerce"] = "COMMERCE";
+    /**
      * Guild can enable welcome screen, Membership Screening and discovery, and receives community updates
      */
     GuildFeature["Community"] = "COMMUNITY";
-    /**
-     * Guild has enabled monetization
-     */
-    GuildFeature["CreatorMonetizableProvisional"] = "CREATOR_MONETIZABLE_PROVISIONAL";
-    /**
-     * Guild has enabled the role subscription promo page
-     */
-    GuildFeature["CreatorStorePage"] = "CREATOR_STORE_PAGE";
-    /*
-     * Guild has been set as a support server on the App Directory
-     */
-    GuildFeature["DeveloperSupportServer"] = "DEVELOPER_SUPPORT_SERVER";
     /**
      * Guild is able to be discovered in the directory
      */
@@ -155,41 +139,15 @@ var GuildFeature;
      */
     GuildFeature["Featurable"] = "FEATURABLE";
     /**
-     * Guild is listed in a directory channel
-     */
-    GuildFeature["HasDirectoryEntry"] = "HAS_DIRECTORY_ENTRY";
-    /**
-     * Guild is a Student Hub
-     *
-     * See https://support.discord.com/hc/articles/4406046651927
-     *
-     * @unstable This feature is currently not documented by Discord, but has known value
-     */
-    GuildFeature["Hub"] = "HUB";
-    /**
-     * Guild has disabled invite usage, preventing users from joining
-     */
-    GuildFeature["InvitesDisabled"] = "INVITES_DISABLED";
-    /**
      * Guild has access to set an invite splash background
      */
     GuildFeature["InviteSplash"] = "INVITE_SPLASH";
-    /**
-     * Guild is in a Student Hub
-     *
-     * See https://support.discord.com/hc/articles/4406046651927
-     *
-     * @unstable This feature is currently not documented by Discord, but has known value
-     */
-    GuildFeature["LinkedToHub"] = "LINKED_TO_HUB";
     /**
      * Guild has enabled Membership Screening
      */
     GuildFeature["MemberVerificationGateEnabled"] = "MEMBER_VERIFICATION_GATE_ENABLED";
     /**
      * Guild has enabled monetization
-     *
-     * @unstable This feature is no longer documented by Discord
      */
     GuildFeature["MonetizationEnabled"] = "MONETIZATION_ENABLED";
     /**
@@ -218,13 +176,13 @@ var GuildFeature;
      */
     GuildFeature["RoleIcons"] = "ROLE_ICONS";
     /**
-     * Guild has role subscriptions that can be purchased
+     * Guild has access to the seven day archive time for threads
      */
-    GuildFeature["RoleSubscriptionsAvailableForPurchase"] = "ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE";
+    GuildFeature["SevenDayThreadArchive"] = "SEVEN_DAY_THREAD_ARCHIVE";
     /**
-     * Guild has enabled role subscriptions
+     * Guild has access to the three day archive time for threads
      */
-    GuildFeature["RoleSubscriptionsEnabled"] = "ROLE_SUBSCRIPTIONS_ENABLED";
+    GuildFeature["ThreeDayThreadArchive"] = "THREE_DAY_THREAD_ARCHIVE";
     /**
      * Guild has enabled ticketed events
      */
@@ -247,29 +205,8 @@ var GuildFeature;
     GuildFeature["WelcomeScreenEnabled"] = "WELCOME_SCREEN_ENABLED";
 })(GuildFeature = exports.GuildFeature || (exports.GuildFeature = {}));
 /**
- * https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-flags
- */
-var GuildMemberFlags;
-(function (GuildMemberFlags) {
-    /**
-     * Member has left and rejoined the guild
-     */
-    GuildMemberFlags[GuildMemberFlags["DidRejoin"] = 1] = "DidRejoin";
-    /**
-     * Member has completed onboarding
-     */
-    GuildMemberFlags[GuildMemberFlags["CompletedOnboarding"] = 2] = "CompletedOnboarding";
-    /**
-     * Member bypasses guild verification requirements
-     */
-    GuildMemberFlags[GuildMemberFlags["BypassesVerification"] = 4] = "BypassesVerification";
-    /**
-     * Member has started onboarding
-     */
-    GuildMemberFlags[GuildMemberFlags["StartedOnboarding"] = 8] = "StartedOnboarding";
-})(GuildMemberFlags = exports.GuildMemberFlags || (exports.GuildMemberFlags = {}));
-/**
  * https://discord.com/developers/docs/resources/guild#integration-object-integration-expire-behaviors
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var IntegrationExpireBehavior;
 (function (IntegrationExpireBehavior) {
@@ -278,6 +215,7 @@ var IntegrationExpireBehavior;
 })(IntegrationExpireBehavior = exports.IntegrationExpireBehavior || (exports.IntegrationExpireBehavior = {}));
 /**
  * https://discord.com/developers/docs/resources/guild#get-guild-widget-image-widget-style-options
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 var GuildWidgetStyle;
 (function (GuildWidgetStyle) {
@@ -303,6 +241,9 @@ var GuildWidgetStyle;
      */
     GuildWidgetStyle["Banner4"] = "banner4";
 })(GuildWidgetStyle = exports.GuildWidgetStyle || (exports.GuildWidgetStyle = {}));
+/**
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
+ */
 var MembershipScreeningFieldType;
 (function (MembershipScreeningFieldType) {
     /**

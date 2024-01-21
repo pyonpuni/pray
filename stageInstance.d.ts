@@ -2,6 +2,7 @@ import type { APIGuildMember } from './guild';
 import type { Snowflake } from '../../globals';
 /**
  * https://discord.com/developers/docs/resources/stage-instance#stage-instance-object
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIStageInstance {
     /**
@@ -28,21 +29,16 @@ export interface APIStageInstance {
     privacy_level: StageInstancePrivacyLevel;
     /**
      * Whether or not stage discovery is disabled
-     * @deprecated
      */
     discoverable_disabled: boolean;
-    /**
-     * The id of the scheduled event for this stage instance
-     */
-    guild_scheduled_event_id?: Snowflake;
 }
 /**
  * https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-privacy-level
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export declare enum StageInstancePrivacyLevel {
     /**
      * The stage instance is visible publicly, such as on stage discovery
-     * @deprecated
      */
     Public = 1,
     /**
@@ -52,7 +48,7 @@ export declare enum StageInstancePrivacyLevel {
 }
 /**
  * https://discord.com/developers/docs/resources/invite#invite-stage-instance-object-invite-stage-instance-structure
- * @deprecated
+ * @deprecated API and gateway v8 are deprecated and the types will not receive further updates, please update to v10.
  */
 export interface APIInviteStageInstance {
     /**
